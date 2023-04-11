@@ -29,6 +29,7 @@ const Search = (props: Props) => {
   const selectedCompany = useSelector(
     (state: RootState) => state.search.searchCompany,
   );
+  const temp = useSelector((state: RootState) => state.search.searchName);
   const searchName = useDebounce(
     useSelector((state: RootState) => state.search.searchName),
     500,
@@ -77,8 +78,10 @@ const Search = (props: Props) => {
   });
 
   useEffect(() => {
+    console.log(selectedBenefit, selectedCompany, searchName, temp);
+    if (searchName === undefined) return;
     dispatch(fetchSearch({ selectedBenefit, selectedCompany, searchName }));
-  }, [selectedBenefit, selectedCompany, searchName]);
+  }, [selectedBenefit, selectedCompany]);
 
   return (
     <SearchContainer>

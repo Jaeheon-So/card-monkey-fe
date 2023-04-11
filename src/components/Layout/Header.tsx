@@ -57,6 +57,7 @@ const Header = ({}: HeaderPropsType) => {
   };
 
   useEffect(() => {
+    console.log("hu");
     dispatch(handleSearchName(searchParams.get("q") || ""));
   }, [searchParams.get("q")]);
 

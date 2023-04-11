@@ -145,6 +145,7 @@ export const searchSlice = createSlice({
       }
     },
     handleSearchName(state, action: PayloadAction<string>) {
+      console.log(action.payload);
       state.searchName = action.payload;
     },
     handleIsOpen(state) {
